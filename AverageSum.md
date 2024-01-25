@@ -1,4 +1,4 @@
-Actual 1 = 
+AverageSum = 
 CALCULATE(
     SUMX(
         VALUES(CONSUMPTION[GI_ITEMS]), // Groupby column name 
