@@ -1,0 +1,8 @@
+Current FY or Previous FY or other 
+
+Current or Prev = 
+var fiscalyear=IF(MONTH(TODAY())>3, YEAR(TODAY()) & " - " & YEAR(TODAY())+1,YEAR(TODAY())-1 & " - " & YEAR(TODAY()))
+var prevfiscal=IF(MONTH(TODAY())>3, YEAR(TODAY())-1 & " - " & YEAR(TODAY()),YEAR(TODAY())-2 & " - " & YEAR(TODAY())-1)
+RETURN
+IF('Dim Date'[Fiscal Year]=fiscalyear,1,
+    IF('Dim Date'[Fiscal Year]=prevfiscal,0,-1))
