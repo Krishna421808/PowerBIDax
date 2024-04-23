@@ -1,4 +1,4 @@
-Current FY or Previous FY or other 
+Current FY or Previous FY or other (Calculated Column)
 
 Current or Prev = 
 var fiscalyear=IF(MONTH(TODAY())>3, YEAR(TODAY()) & " - " & YEAR(TODAY())+1,YEAR(TODAY())-1 & " - " & YEAR(TODAY()))
