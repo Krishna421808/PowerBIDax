@@ -1,0 +1,15 @@
+To calculate the max and min month for the current fiscal year with fiscal year
+MinFYmon = 
+VAR minmon = MINX(FILTER('Dim Date','Dim Date'[Current or Prev] = 1),'Dim Date'[FYMonNo])
+var monthname=MINX(FILTER('Dim Date','Dim Date'[FYMonNo] = minmon),'Dim Date'[MonthName])
+RETURN
+   IF('Dim Date'[Current or Prev]=1,LEFT(monthname,3),BLANK())
+
+MaxFYmon = 
+VAR maxmon = MAXX(FILTER('Dim Date','Dim Date'[Current or Prev] = 1),'Dim Date'[FYMonNo])
+var monthname=MAXX(FILTER('Dim Date','Dim Date'[FYMonNo] = maxmon),'Dim Date'[MonthName])
+RETURN
+   IF('Dim Date'[Current or Prev]=1,LEFT(monthname,3),BLANK())
+
+
+FYName = IF('Dim Date'[Current or Prev]=1,'Dim Date'[Fiscal Year] & " (" & 'Dim Date'[MinFYmon] & " - " & 'Dim Date'[MaxFYmon] & " )" ,'Dim Date'[Fiscal Year])
